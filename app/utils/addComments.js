@@ -12,6 +12,7 @@ export const addComment = async (data) => {
         );
         toast.success("comment added successfully")
     } catch (error) {
+        console.log(error);
         toast.error("failed to add comment, try again");
     }
 };

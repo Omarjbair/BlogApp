@@ -12,6 +12,7 @@ const Form = () => {
         .then(() => {
                 toast.success('Email sent successfully');
             },(error) => {
+                console.log(error);
                 toast.error('Failed to sent');
             },
         );

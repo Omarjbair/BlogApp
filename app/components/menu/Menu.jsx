@@ -1,6 +1,5 @@
 "use client";
 
-import { toast } from "sonner";
 import Categories from "./Categories";
 import EditorPick from "./EditorPick";
 import MostPopular from "./MostPopular";

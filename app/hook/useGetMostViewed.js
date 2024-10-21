@@ -23,6 +23,7 @@ const useGetMostViewed = () => {
             }));
             setMostViewPost(allPosts);
         } catch (error) {
+            console.log(error);
             toast.error('Error fetching mostView posts reload the page');
         }
         setLoading(false);

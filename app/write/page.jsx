@@ -57,6 +57,7 @@ const WritePage = () => {
                 await uploadImage(file);
                 toast.success("Image uploaded successfully");
             } catch (error) {
+                console.log(error);
                 toast.error("Error uploading image try again");
             } finally {
                 setLoading(false);
