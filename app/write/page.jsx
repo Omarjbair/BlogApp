@@ -84,6 +84,7 @@ const WritePage = () => {
             try{
                 await addPost(fromData);
             }catch (error){
+                console.log(error);
                 toast.error('error in adding post, please try again');
             } finally {
                 setLoading(false);
