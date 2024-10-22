@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { useEffect, useState } from 'react';
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.bubble.css';
 import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react";
@@ -11,6 +10,8 @@ import Loading from '../components/loading/Loading';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { storage } from '../utils/firebase';
 import { toast } from 'sonner';
+import dynamic from 'next/dynamic';
+import { useMemo } from 'react';
 
 const WritePage = () => {
     const [open,setOpen] = useState(false);
@@ -23,6 +24,11 @@ const WritePage = () => {
     const [loading,setLoading] = useState(false);
     const {status,data} = useSession()
     const router = useRouter();
+
+
+    // for fixing the build error 
+    const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }), []);
+
     const uploadImage = async (file) => {
         const storageRef = ref(storage, `images/${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -34,6 +40,7 @@ const WritePage = () => {
                     setProgress((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
                 },
                 (error) => {
+                    console.log(error)
                     toast.error(error);
                     reject(error);
                 },

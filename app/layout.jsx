@@ -3,7 +3,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import { Inter } from 'next/font/google';
 import { ThemeContextProvider } from "./context/ThemeContext";
-import AuthProvider from "./provider/authProvider";
+import AuthProvider from './provider/AuthProvider';
 import { Toaster } from 'sonner';
 import NextTopLoader from "nextjs-toploader";
 
