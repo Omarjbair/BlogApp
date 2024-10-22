@@ -5,7 +5,7 @@ import { collection, query, orderBy, limit, getDocs, startAfter, startAt, where 
 import { db } from '../utils/firebase';
 import { toast } from 'sonner';
 
-const PAGE_SIZE = 4;
+const PAGE_SIZE = 3;
 
 const useGetPaginationPosts = (selectedCategory = null) => {
     const [posts, setPosts] = useState([]);
